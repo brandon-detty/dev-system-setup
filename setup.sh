@@ -46,6 +46,7 @@ EOF
     golang \
     google-chrome-stable \
     npm \
+    java-latest-openjdk-devel \
     php-cli composer php-pdo \
     postgresql postgresql-server \
     qemu-kvm guestfs-tools libvirt virt-install virt-manager virt-viewer \
