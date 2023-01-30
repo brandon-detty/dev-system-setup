@@ -48,6 +48,7 @@ EOF
     google-chrome-stable \
     npm \
     java-latest-openjdk-devel \
+    mariadb mariadb-server \
     php-cli composer php-pdo \
     postgresql postgresql-server \
     protobuf-compiler \
