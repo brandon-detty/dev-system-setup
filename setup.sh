@@ -49,6 +49,7 @@ EOF
     java-latest-openjdk-devel \
     php-cli composer php-pdo \
     postgresql postgresql-server \
+    protobuf-compiler \
     qemu-kvm guestfs-tools libvirt virt-install virt-manager virt-viewer \
     rust cargo rust-src rustfmt \
     tmux \
