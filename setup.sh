@@ -50,6 +50,7 @@ EOF
     java-latest-openjdk-devel \
     mariadb mariadb-server \
     php-cli composer php-pdo \
+    podman-compose \
     postgresql postgresql-server \
     protobuf-compiler \
     qemu-kvm guestfs-tools libvirt virt-install virt-manager virt-viewer \
