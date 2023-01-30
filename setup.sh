@@ -39,6 +39,7 @@ EOF
   sudo dnf install -y \
     code \
     dotnet-sdk-6.0 aspnetcore-runtime-6.0 \
+    dotnet-sdk-7.0 aspnetcore-runtime-7.0 \
     file-roller file-roller-nautilus \
     gcc-c++ \
     gitk \
