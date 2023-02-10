@@ -137,8 +137,9 @@ _git() {
   # set up ~/.gitconfig
   git config --global core.editor vim
   git config --global diff.tool vimdiff
-  git config --global user.name "schone code"
-  git config --global user.email "schone-code@github.com"
+  git config --global init.defaultBranch main
+  git config --global user.name "Brandon Detty"
+  git config --global user.email "113217431+brandon-detty@users.noreply.github.com"
 
   git config --global core.excludesfile ~/.gitignore
   cat > ~/.gitignore << EOF
