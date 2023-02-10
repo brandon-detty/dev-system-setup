@@ -119,7 +119,7 @@ EOF
 }
 
 _php() {
-  composer global require "squizlabs/php_codesniffer=*"
+  composer global require "squizlabs/php_codesniffer=*" -q
 }
 
 _ssh() {
