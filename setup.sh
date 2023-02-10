@@ -146,15 +146,6 @@ _git() {
 *.swp
 *.swo
 EOF
-
-  cat > .ssh/config << EOF
-Host github.com-schone-code
-    Hostname github.com
-    User git
-    IdentityFile ~/.ssh/id_ecdsa_schone-code
-EOF
-  chmod 600 .ssh/config
-  restorecon -v .ssh/config
 }
 
 main
