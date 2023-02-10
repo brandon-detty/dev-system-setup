@@ -58,9 +58,11 @@ EOF
     tmux \
     vim-enhanced
 
-  # revert to using vim for things like git commits and visudo;
+  # replace nano with vim
+  sudo dnf install -y --allowerasing vim-default-editor
+  
   # assume there's enough RAM to skip zram/swap
-  sudo dnf remove -y nano-default-editor zram-generator-defaults
+  sudo dnf remove -y zram-generator-defaults
 
   sudo dnf update -y
 }
