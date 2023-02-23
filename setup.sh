@@ -179,8 +179,8 @@ list=['$GTERM_PROF']
 [:$GTERM_PROF]
 audible-bell=false
 default-size-columns=130
-default-size-rows=25
-font='Monospace, Bold 18'
+default-size-rows=24
+font='Monospace, Bold 14'
 use-system-font=false
 EOT
 }
