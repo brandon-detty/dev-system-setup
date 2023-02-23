@@ -18,6 +18,8 @@ main() {
 
   _ssh
   _git
+
+  _gterm
 }
 
 _dnf() {
@@ -146,6 +148,25 @@ _git() {
 *.swp
 *.swo
 EOF
+}
+
+_gterm() {
+  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ zoom-in '<Primary>equal'
+
+  GTERM_PROF=`gsettings get org.gnome.Terminal.ProfilesList default`
+  GTERM_PROF="${GTERM_PROF%\'}"
+  GTERM_PROF="${GTERM_PROF#\'}"
+  dconf load /org/gnome/terminal/legacy/profiles:/ << EOT
+[/]
+list=['$GTERM_PROF']
+
+[:$GTERM_PROF]
+audible-bell=false
+default-size-columns=130
+default-size-rows=25
+font='Monospace, Bold 18'
+use-system-font=false
+EOT
 }
 
 main
