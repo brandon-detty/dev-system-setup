@@ -78,6 +78,14 @@ alias governor-get="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias governor-set-powersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 alias governor-set-schedutil="echo schedutil | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 EOF
+
+    LOGIND="/etc/systemd/logind.conf"
+    if ! grep -q '^HandleLidSwitch=' $LOGIND ; then 
+      echo "HandleLidSwitch=ignore" | sudo tee -a $LOGIND > /dev/null
+    fi
+    if ! grep -q '^HandleLidSwitchExternalPower' $LOGIND ; then 
+      echo "HandleLidSwitchExternalPower=ignore" | sudo tee -a $LOGIND > /dev/null
+    fi
   fi
 }
 
