@@ -35,6 +35,17 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 
+  # MongoDB repo setup
+  sudo rpm --import https://pgp.mongodb.com/server-6.0.asc
+  sudo tee /etc/yum.repos.d/mongodb.repo > /dev/null << EOF
+[Mongodb]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/6.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://pgp.mongodb.com/server-6.0.asc
+EOF
+
   # enable Chrome repo
   sudo dnf install fedora-workstation-repositories
   sudo dnf config-manager --set-enabled google-chrome
@@ -49,6 +60,7 @@ EOF
     gnome-extensions-app gnome-tweaks \
     golang \
     google-chrome-stable \
+    mongodb-org \
     npm \
     java-latest-openjdk-devel \
     mariadb mariadb-server \
