@@ -8,6 +8,8 @@ fi
 main() {
   cd ~
 
+  _sudo
+
   _dnf
   _power
 
@@ -21,6 +23,10 @@ main() {
 
   _gnome
   _gterm
+}
+
+_sudo() {
+  echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee "/etc/sudoers.d/$USER" > /dev/null
 }
 
 _dnf() {
