@@ -105,6 +105,9 @@ EOF
       echo "HandleLidSwitchExternalPower=ignore" | sudo tee -a $LOGIND > /dev/null
     fi
   fi
+
+  # wait 15 minutes before turning off the screen
+  gsettings set org.gnome.desktop.session idle-delay 900
 }
 
 _tmux() {
