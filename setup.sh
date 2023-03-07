@@ -62,6 +62,7 @@ EOF
     dotnet-sdk-7.0 aspnetcore-runtime-7.0 \
     file-roller file-roller-nautilus \
     gcc-c++ \
+    gimp \
     gitk \
     gnome-extensions-app gnome-tweaks \
     golang \
