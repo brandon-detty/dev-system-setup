@@ -157,6 +157,12 @@ _php() {
 }
 
 _aws() {
+  # toolkit requires docker, which isn't included in Fedora since RH went with podman et al
+  sudo dnf config-manager --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+  sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  sudo systemctl start docker
+
   wget -P /tmp/ https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
   unzip /tmp/aws-sam-cli-linux-x86_64.zip -d /tmp/sam-install
   sudo /tmp/sam-install/install
