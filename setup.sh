@@ -17,6 +17,7 @@ main() {
   _vim
 
   _php
+  _aws
 
   _ssh
   _git
@@ -153,6 +154,12 @@ EOF
 
 _php() {
   composer global require "squizlabs/php_codesniffer=*" -q
+}
+
+_aws() {
+  wget -P /tmp/ https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+  unzip /tmp/aws-sam-cli-linux-x86_64.zip -d /tmp/sam-install
+  sudo /tmp/sam-install/install
 }
 
 _ssh() {
