@@ -161,6 +161,10 @@ _aws() {
   sudo dnf config-manager --add-repo \
     https://download.docker.com/linux/fedora/docker-ce.repo
   sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+  newgrp docker
+  sudo systemctl enable --now containerd.service
   sudo systemctl enable --now docker
 
   wget -P /tmp/ https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
