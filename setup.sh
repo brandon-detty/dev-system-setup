@@ -18,6 +18,7 @@ main() {
 
   _php
   _aws
+  _go
 
   _ssh
   _git
@@ -170,6 +171,17 @@ _aws() {
   wget -P /tmp/ https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
   unzip /tmp/aws-sam-cli-linux-x86_64.zip -d /tmp/sam-install
   sudo /tmp/sam-install/install
+}
+
+_go() {
+  GOPATH=$(go env GOPATH)
+
+  mkdir -p ~/projects/go
+  mkdir -p $GOPATH/src/github.com
+  ln -nfs ~/projects/go $GOPATH/src/github.com/brandon-detty
+
+  mkdir -p ~/.bashrc.d
+  echo "export PATH=\$PATH:$GOPATH/bin" > ~/.bashrc.d/go
 }
 
 _ssh() {
