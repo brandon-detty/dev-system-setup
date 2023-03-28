@@ -19,6 +19,7 @@ main() {
   _php
   _aws
   _go
+  _postman
 
   _ssh
   _git
@@ -182,6 +183,27 @@ _go() {
 
   mkdir -p ~/.bashrc.d
   echo "export PATH=\$PATH:$GOPATH/bin" > ~/.bashrc.d/go
+}
+
+_postman() {
+  wget -nc -O /tmp/postman.tar.gz https://dl.pstmn.io/download/latest/linux_64
+  sudo tar -C /opt -xzf /tmp/postman.tar.gz
+
+  cat > ~/.local/share/applications/postman.desktop << EOF
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Postman
+Comment=Postman Native App
+Exec=/opt/Postman/Postman — %u
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Terminal=false
+StartupWMClass=postman
+Type=Application
+Categories=Network;
+MimeType=x-scheme-handler/tg;
+X-Desktop-File-Install-Version=0.22
+EOF
 }
 
 _ssh() {
