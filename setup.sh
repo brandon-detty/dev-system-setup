@@ -25,7 +25,7 @@ main() {
   _git
 
   _gnome
-  _gterm
+  _term
 }
 
 _sudo() {
@@ -237,9 +237,14 @@ _gnome() {
   gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 
   gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+
+  # Set ALT+TAB to switch windows in the current workspace instead of apps in all workspaces
+  gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+  gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
+  gsettings set org.gnome.shell.window-switcher current-workspace-only true
 }
 
-_gterm() {
+_term() {
   gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ zoom-in '<Primary>equal'
 
   GTERM_PROF=`gsettings get org.gnome.Terminal.ProfilesList default`
@@ -256,6 +261,10 @@ default-size-rows=24
 font='Monospace, Bold 14'
 use-system-font=false
 EOT
+
+  # set up TTY font
+  sudo cp -v /etc/vconsole.conf /etc/vconsole.conf.bak
+  sudo sed -i 's/"eurlatgr"/"latarcyrheb-sun32.psfu.gz"/' /etc/vconsole.conf
 }
 
 main
